@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ideabobo.service.UserMapper">
+  <resultMap id="BaseResultMap" type="com.ideabobo.model.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="passwd" jdbcType="VARCHAR" property="passwd" />
+    <result column="roletype" jdbcType="VARCHAR" property="roletype" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="qq" jdbcType="VARCHAR" property="qq" />
+    <result column="wechat" jdbcType="VARCHAR" property="wechat" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="birth" jdbcType="VARCHAR" property="birth" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="sid" jdbcType="VARCHAR" property="sid" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="statecn" jdbcType="VARCHAR" property="statecn" />
+    <result column="clientId" jdbcType="VARCHAR" property="clientid" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="favs" jdbcType="VARCHAR" property="favs" />
+    <result column="money" jdbcType="INTEGER" property="money" />
+    <result column="openid" jdbcType="VARCHAR" property="openid" />
+    <result column="imgurl" jdbcType="VARCHAR" property="imgurl" />
+    <result column="tags" jdbcType="VARCHAR" property="tags" />
+    <result column="fids" jdbcType="VARCHAR" property="fids" />
+    <result column="qids" jdbcType="VARCHAR" property="qids" />
+    <result column="xuexiao" jdbcType="VARCHAR" property="xuexiao" />
+    <result column="zhuanye" jdbcType="VARCHAR" property="zhuanye" />
+    <result column="cuotis" jdbcType="VARCHAR" property="cuotis" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, username, passwd, roletype, email, tel, qq, wechat, sex, birth, img, sid, address, 
+    statecn, clientId, nickname, favs, money, openid, imgurl, tags, fids, qids, xuexiao, 
+    zhuanye, cuotis
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wct_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from wct_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ideabobo.model.User">
+    insert into wct_user (id, username, passwd, 
+      roletype, email, tel, 
+      qq, wechat, sex, birth, 
+      img, sid, address, 
+      statecn, clientId, nickname, 
+      favs, money, openid, 
+      imgurl, tags, fids, 
+      qids, xuexiao, zhuanye, 
+      cuotis)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{passwd,jdbcType=VARCHAR}, 
+      #{roletype,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{birth,jdbcType=VARCHAR}, 
+      #{img,jdbcType=VARCHAR}, #{sid,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{statecn,jdbcType=VARCHAR}, #{clientid,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
+      #{favs,jdbcType=VARCHAR}, #{money,jdbcType=INTEGER}, #{openid,jdbcType=VARCHAR}, 
+      #{imgurl,jdbcType=VARCHAR}, #{tags,jdbcType=VARCHAR}, #{fids,jdbcType=VARCHAR}, 
+      #{qids,jdbcType=VARCHAR}, #{xuexiao,jdbcType=VARCHAR}, #{zhuanye,jdbcType=VARCHAR}, 
+      #{cuotis,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ideabobo.model.User">
+    insert into wct_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="passwd != null">
+        passwd,
+      </if>
+      <if test="roletype != null">
+        roletype,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="wechat != null">
+        wechat,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="birth != null">
+        birth,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+      <if test="sid != null">
+        sid,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="statecn != null">
+        statecn,
+      </if>
+      <if test="clientid != null">
+        clientId,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="favs != null">
+        favs,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="openid != null">
+        openid,
+      </if>
+      <if test="imgurl != null">
+        imgurl,
+      </if>
+      <if test="tags != null">
+        tags,
+      </if>
+      <if test="fids != null">
+        fids,
+      </if>
+      <if test="qids != null">
+        qids,
+      </if>
+      <if test="xuexiao != null">
+        xuexiao,
+      </if>
+      <if test="zhuanye != null">
+        zhuanye,
+      </if>
+      <if test="cuotis != null">
+        cuotis,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null">
+        #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="roletype != null">
+        #{roletype,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birth != null">
+        #{birth,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="statecn != null">
+        #{statecn,jdbcType=VARCHAR},
+      </if>
+      <if test="clientid != null">
+        #{clientid,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="favs != null">
+        #{favs,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null">
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl != null">
+        #{imgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="fids != null">
+        #{fids,jdbcType=VARCHAR},
+      </if>
+      <if test="qids != null">
+        #{qids,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexiao != null">
+        #{xuexiao,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuanye != null">
+        #{zhuanye,jdbcType=VARCHAR},
+      </if>
+      <if test="cuotis != null">
+        #{cuotis,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ideabobo.model.User">
+    update wct_user
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null">
+        passwd = #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="roletype != null">
+        roletype = #{roletype,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birth != null">
+        birth = #{birth,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="sid != null">
+        sid = #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="statecn != null">
+        statecn = #{statecn,jdbcType=VARCHAR},
+      </if>
+      <if test="clientid != null">
+        clientId = #{clientid,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="favs != null">
+        favs = #{favs,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null">
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl != null">
+        imgurl = #{imgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        tags = #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="fids != null">
+        fids = #{fids,jdbcType=VARCHAR},
+      </if>
+      <if test="qids != null">
+        qids = #{qids,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexiao != null">
+        xuexiao = #{xuexiao,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuanye != null">
+        zhuanye = #{zhuanye,jdbcType=VARCHAR},
+      </if>
+      <if test="cuotis != null">
+        cuotis = #{cuotis,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ideabobo.model.User">
+    update wct_user
+    set username = #{username,jdbcType=VARCHAR},
+      passwd = #{passwd,jdbcType=VARCHAR},
+      roletype = #{roletype,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      birth = #{birth,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR},
+      sid = #{sid,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      statecn = #{statecn,jdbcType=VARCHAR},
+      clientId = #{clientid,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      favs = #{favs,jdbcType=VARCHAR},
+      money = #{money,jdbcType=INTEGER},
+      openid = #{openid,jdbcType=VARCHAR},
+      imgurl = #{imgurl,jdbcType=VARCHAR},
+      tags = #{tags,jdbcType=VARCHAR},
+      fids = #{fids,jdbcType=VARCHAR},
+      qids = #{qids,jdbcType=VARCHAR},
+      xuexiao = #{xuexiao,jdbcType=VARCHAR},
+      zhuanye = #{zhuanye,jdbcType=VARCHAR},
+      cuotis = #{cuotis,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

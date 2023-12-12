@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ideabobo.service.KaoshimMapper">
+  <resultMap id="BaseResultMap" type="com.ideabobo.model.Kaoshim">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="ndate" jdbcType="VARCHAR" property="ndate" />
+    <result column="course" jdbcType="VARCHAR" property="course" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="score" jdbcType="VARCHAR" property="score" />
+    <result column="zongfen" jdbcType="VARCHAR" property="zongfen" />
+    <result column="ksid" jdbcType="INTEGER" property="ksid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, title, note, ndate, course, img, cid, uid, username, score, zongfen, ksid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wct_kaoshim
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from wct_kaoshim
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ideabobo.model.Kaoshim">
+    insert into wct_kaoshim (id, title, note, 
+      ndate, course, img, 
+      cid, uid, username, 
+      score, zongfen, ksid
+      )
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, 
+      #{ndate,jdbcType=VARCHAR}, #{course,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, 
+      #{cid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
+      #{score,jdbcType=VARCHAR}, #{zongfen,jdbcType=VARCHAR}, #{ksid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ideabobo.model.Kaoshim">
+    insert into wct_kaoshim
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="ndate != null">
+        ndate,
+      </if>
+      <if test="course != null">
+        course,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="zongfen != null">
+        zongfen,
+      </if>
+      <if test="ksid != null">
+        ksid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="ndate != null">
+        #{ndate,jdbcType=VARCHAR},
+      </if>
+      <if test="course != null">
+        #{course,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="zongfen != null">
+        #{zongfen,jdbcType=VARCHAR},
+      </if>
+      <if test="ksid != null">
+        #{ksid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ideabobo.model.Kaoshim">
+    update wct_kaoshim
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="ndate != null">
+        ndate = #{ndate,jdbcType=VARCHAR},
+      </if>
+      <if test="course != null">
+        course = #{course,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="zongfen != null">
+        zongfen = #{zongfen,jdbcType=VARCHAR},
+      </if>
+      <if test="ksid != null">
+        ksid = #{ksid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ideabobo.model.Kaoshim">
+    update wct_kaoshim
+    set title = #{title,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR},
+      ndate = #{ndate,jdbcType=VARCHAR},
+      course = #{course,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR},
+      cid = #{cid,jdbcType=INTEGER},
+      uid = #{uid,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR},
+      score = #{score,jdbcType=VARCHAR},
+      zongfen = #{zongfen,jdbcType=VARCHAR},
+      ksid = #{ksid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

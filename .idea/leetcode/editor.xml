@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="LeetcodeEditor">
+    <option name="projectConfig">
+      <map>
+        <entry key="$PROJECT_DIR$/../../leetcode/leetcode/editor/cn/AddTwoNumbers .java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/../../leetcode/leetcode/editor/cn/doc/content/AddTwoNumbers .md" />
+              <option name="frontendQuestionId" value="leetcode.cn2" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/../../leetcode/leetcode/editor/cn/AddTwoNumbers .java" />
+              <option name="titleSlug" value="add-two-numbers" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../leetcode/leetcode/editor/cn/LongestPalindromicSubstring .java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/../../leetcode/leetcode/editor/cn/doc/content/LongestPalindromicSubstring .md" />
+              <option name="frontendQuestionId" value="leetcode.cn5" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/../../leetcode/leetcode/editor/cn/LongestPalindromicSubstring .java" />
+              <option name="titleSlug" value="longest-palindromic-substring" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../leetcode/leetcode/editor/cn/MedianOfTwoSortedArrays .java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/../../leetcode/leetcode/editor/cn/doc/content/MedianOfTwoSortedArrays .md" />
+              <option name="frontendQuestionId" value="leetcode.cn4" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/../../leetcode/leetcode/editor/cn/MedianOfTwoSortedArrays .java" />
+              <option name="titleSlug" value="median-of-two-sorted-arrays" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../leetcode/leetcode/editor/cn/PowxN .java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/../../leetcode/leetcode/editor/cn/doc/content/PowxN .md" />
+              <option name="frontendQuestionId" value="leetcode.cn50" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/../../leetcode/leetcode/editor/cn/PowxN .java" />
+              <option name="titleSlug" value="powx-n" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

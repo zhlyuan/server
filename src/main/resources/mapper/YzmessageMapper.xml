@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ideabobo.service.YzmessageMapper">
+  <resultMap id="BaseResultMap" type="com.ideabobo.model.Yzmessage">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="ndate" jdbcType="VARCHAR" property="ndate" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="tid" jdbcType="INTEGER" property="tid" />
+    <result column="fid" jdbcType="INTEGER" property="fid" />
+    <result column="fuser" jdbcType="VARCHAR" property="fuser" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="pid" jdbcType="INTEGER" property="pid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, ndate, status, tid, fid, fuser, img, note, title, pid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wct_yzmessage
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from wct_yzmessage
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ideabobo.model.Yzmessage">
+    insert into wct_yzmessage (id, ndate, status, 
+      tid, fid, fuser, img, 
+      note, title, pid)
+    values (#{id,jdbcType=INTEGER}, #{ndate,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{tid,jdbcType=INTEGER}, #{fid,jdbcType=INTEGER}, #{fuser,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, 
+      #{note,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{pid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ideabobo.model.Yzmessage">
+    insert into wct_yzmessage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="ndate != null">
+        ndate,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="tid != null">
+        tid,
+      </if>
+      <if test="fid != null">
+        fid,
+      </if>
+      <if test="fuser != null">
+        fuser,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ndate != null">
+        #{ndate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="tid != null">
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="fid != null">
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="fuser != null">
+        #{fuser,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ideabobo.model.Yzmessage">
+    update wct_yzmessage
+    <set>
+      <if test="ndate != null">
+        ndate = #{ndate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="tid != null">
+        tid = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="fid != null">
+        fid = #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="fuser != null">
+        fuser = #{fuser,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ideabobo.model.Yzmessage">
+    update wct_yzmessage
+    set ndate = #{ndate,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      tid = #{tid,jdbcType=INTEGER},
+      fid = #{fid,jdbcType=INTEGER},
+      fuser = #{fuser,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

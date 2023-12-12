@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ideabobo.service.KaoshiMapper">
+  <resultMap id="BaseResultMap" type="com.ideabobo.model.Kaoshi">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="ndate" jdbcType="VARCHAR" property="ndate" />
+    <result column="course" jdbcType="VARCHAR" property="course" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="dtime" jdbcType="INTEGER" property="dtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, title, note, ndate, course, img, cid, dtime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wct_kaoshi
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from wct_kaoshi
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ideabobo.model.Kaoshi">
+    insert into wct_kaoshi (id, title, note, 
+      ndate, course, img, 
+      cid, dtime)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, 
+      #{ndate,jdbcType=VARCHAR}, #{course,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, 
+      #{cid,jdbcType=INTEGER}, #{dtime,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ideabobo.model.Kaoshi">
+    insert into wct_kaoshi
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="ndate != null">
+        ndate,
+      </if>
+      <if test="course != null">
+        course,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="dtime != null">
+        dtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="ndate != null">
+        #{ndate,jdbcType=VARCHAR},
+      </if>
+      <if test="course != null">
+        #{course,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="dtime != null">
+        #{dtime,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ideabobo.model.Kaoshi">
+    update wct_kaoshi
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="ndate != null">
+        ndate = #{ndate,jdbcType=VARCHAR},
+      </if>
+      <if test="course != null">
+        course = #{course,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="dtime != null">
+        dtime = #{dtime,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ideabobo.model.Kaoshi">
+    update wct_kaoshi
+    set title = #{title,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR},
+      ndate = #{ndate,jdbcType=VARCHAR},
+      course = #{course,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR},
+      cid = #{cid,jdbcType=INTEGER},
+      dtime = #{dtime,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
